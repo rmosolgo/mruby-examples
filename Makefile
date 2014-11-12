@@ -8,8 +8,7 @@ BUILD_DIR=build
 
 setup:
 	git submodule update
-	cd mruby
-	make
+	cd mruby; make
 
 clean:
 	rm -f build/*

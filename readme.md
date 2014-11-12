@@ -1,5 +1,7 @@
 # mruby Examples
 
+I made some examples as I was trying out [mruby](http://github.com/mruby/mruby). Each one has a make task, then you can run the little program.
+
 ## Setup
 
 ```
@@ -8,7 +10,7 @@ $ make setup
 
 It should:
 
-- check out the `mruby` submodule
+- update the `mruby` submodule
 - `cd mruby` and `make` to build mruby
 
 ## Hello World
