@@ -6,6 +6,11 @@
 
 BUILD_DIR=build
 
+setup:
+	git submodule update
+	cd mruby
+	make
+
 clean:
 	rm -f build/*
 	rm -f $(04_DIR)/fish_program.c
@@ -18,7 +23,7 @@ hello_world: clean $(01_DIR)/hello_world.c
 
 hello_bytecode: clean $(02_DIR)/hello_bytecode.rb
 	mruby/bin/mrbc $(BUILD_DIR)/hello_bytecode.rb
-	@echo "---\nRun bytecode with mruby\n: mruby/bin/mruby -b $(BUILD_DIR)/hello_bytecode.mrb---"
+	@echo "---\nRun bytecode with mruby: mruby/bin/mruby -b $(BUILD_DIR)/hello_bytecode.mrb\n---"
 
 hello_c_code: clean $(03_DIR)/hello_c_code.c $(03_DIR)/hello_c_code_ruby.rb
 	mruby/bin/mrbc -B hello_c_code_ruby $(03_DIR)/hello_c_code_ruby.rb
