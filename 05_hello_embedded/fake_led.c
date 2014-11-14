@@ -1,10 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "mruby.h"
 #include "mruby/variable.h"
 #include "mruby/string.h"
-#include "mruby/data.h"
 
 #define KNRM  "[0m"
 #define KRED  "[31m"

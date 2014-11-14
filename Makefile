@@ -12,6 +12,7 @@ setup:
 
 clean:
 	rm -f build/*
+	rm -f $(03_DIR)/hello_c_code_ruby.c
 	rm -f $(04_DIR)/fish_program.c
 	rm -f $(05_DIR)/hello_embedded_ruby.c
 
