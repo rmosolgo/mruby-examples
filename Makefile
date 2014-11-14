@@ -21,7 +21,7 @@ hello_world: clean $(01_DIR)/hello_world.c
 	@echo "---\nInterpret a Ruby string inside a C program: $(BUILD_DIR)/hello_world\n---"
 
 hello_bytecode: clean $(02_DIR)/hello_bytecode.rb
-	mruby/bin/mrbc $(BUILD_DIR)/hello_bytecode.rb
+	mruby/bin/mrbc  -o $(BUILD_DIR)/hello_bytecode.mrb $(02_DIR)/hello_bytecode.rb
 	@echo "---\nRun bytecode with mruby: mruby/bin/mruby -b $(BUILD_DIR)/hello_bytecode.mrb\n---"
 
 hello_c_code: clean $(03_DIR)/hello_c_code.c $(03_DIR)/hello_c_code_ruby.rb
@@ -29,7 +29,6 @@ hello_c_code: clean $(03_DIR)/hello_c_code.c $(03_DIR)/hello_c_code_ruby.rb
 	gcc -c $(03_DIR)/hello_c_code.c -o $(03_DIR)/hello_c_code.o -Imruby/include
 	gcc -o $(BUILD_DIR)/hello_c_code $(03_DIR)/hello_c_code.o -lmruby -lm -Lmruby/build/host/lib
 	@echo "---\nRun bizarre Ruby + C hybrid binary: $(BUILD_DIR)/hello_c_code\n---"
-
 
 hello_classes: clean $(04_DIR)/hello_classes.c $(04_DIR)/fish_program.rb
 	mruby/bin/mrbc -B fish_program $(04_DIR)/fish_program.rb
