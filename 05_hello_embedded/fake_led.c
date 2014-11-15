@@ -25,7 +25,7 @@ static mrb_value fake_led_init(mrb_state* mrb, mrb_value self)
   return self;
 }
 
-// This function is FakeLED#illuminate! I connects to `print_led`, our pretend hardware.
+// This function is FakeLED#illuminate! It connects to `print_led`, our fake hardware.
 static mrb_value fake_led_illuminate(mrb_state* mrb, mrb_value self)
 {
   mrb_value color = mrb_iv_get(mrb, self, mrb_intern_lit(mrb, "@color"));
