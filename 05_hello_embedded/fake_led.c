@@ -7,6 +7,7 @@
 #define KGRN  "[32m"
 #define KBLU  "[34m"
 
+// This is our make-believe LED.
 static void print_led(char *print_color)
 {
   printf(" \x1B%s .--. \x1B%s \n", print_color, KNRM);
@@ -14,6 +15,8 @@ static void print_led(char *print_color)
   printf(" \x1B%s  TT  \x1B%s \n", print_color, KNRM);
 }
 
+// This function is called by `FakeLed.new`.
+// It accepts one argument (String) as the color. See `mrb_get_args`.
 static mrb_value fake_led_init(mrb_state* mrb, mrb_value self)
 {
   mrb_value color;
@@ -22,6 +25,7 @@ static mrb_value fake_led_init(mrb_state* mrb, mrb_value self)
   return self;
 }
 
+// This function is FakeLED#illuminate! I connects to `print_led`, our pretend hardware.
 static mrb_value fake_led_illuminate(mrb_state* mrb, mrb_value self)
 {
   mrb_value color = mrb_iv_get(mrb, self, mrb_intern_lit(mrb, "@color"));
