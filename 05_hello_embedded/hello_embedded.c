@@ -17,7 +17,7 @@ int main(void)
     struct RClass *fake_led_class = mrb_define_class(mrb, "FakeLED", mrb->object_class);
 
     // Instance methods in FakeLED
-    mrb_define_method(mrb, fake_led_class, "initialize", fake_led_init, MRB_ARGS_REQ(1));
+    mrb_define_method(mrb, fake_led_class, "initialize", fake_led_init, MRB_ARGS_REQ(1)); // Defined in fake_led.c
     mrb_define_method(mrb, fake_led_class, "illuminate!", fake_led_illuminate, MRB_ARGS_REQ(1));
 
     // Constants nested in FakeLED, eg FakeLED::RED
