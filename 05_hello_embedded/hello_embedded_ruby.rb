@@ -7,3 +7,5 @@ lights = [red, green, blue]
 10.times do
   lights.sample.illuminate!
 end
+
+# This file will return error if you try to run it. 

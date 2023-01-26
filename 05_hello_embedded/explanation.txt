@@ -1,0 +1,4 @@
+Same thing as the previous example.
+The ruby code doesn't do anything by itself. but is has the main code.
+The C main code provided the driver to drive the led. Pulls in the ruby 
+code as bytecodes. Than executes everything. 

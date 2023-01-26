@@ -1,0 +1,22 @@
+this one took me a while to get it.
+
+Until now, we have been able to,
+- Call ruby code from C
+- Call compiled ruby code from C
+
+basically, all the ruby code were complete.
+If you try to run the ruby code here, you'll get error.
+Becuase, nowhere in the ruby file, the "fish" class has been definded.
+
+But if you look into C code "hello_classes.c" you'll see
+there are functions for "init" and "swim". But these are functions.
+Not class. C is not a OOP.
+
+If you continue reading, you'll see that on line 34
+
+mrb_define_method(mrb, fish_class, "initialize", fish_init, MRB_ARGS_REQ(1));
+  mrb_define_method(mrb, fish_class, "swim!", fish_swim, MRB_ARGS_REQ(1));
+
+This is binding our functions to ruby objects. 
+
+[All I can say at this point is that, it works. but I'm not sure how.]

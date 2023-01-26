@@ -1,0 +1,22 @@
+Here,
+You have normal ruby code. "hello_c_code_ruby.rb"
+You can run it by, "ruby hello_c_code_ruby.rb"
+it'll print some line. 
+
+What you can do is, compile the ruby code as a byte code. 
+and run it using mruby as the previous example.
+
+This time however, we are going to invoke it from a c code.
+If you look into the makefile include with this repo,
+you will find,
+mruby/bin/mrbc -B hello_c_code_ruby $(03_DIR)/hello_c_code_ruby.rb
+this command will generate hellow_c_code_ruby.c from hello_c_code_ruby.rb
+So basically this commmand translates all your ruby code into bytescode which is accesible by c code. 
+
+Now using a main file "hello_c_code.c" you simply use the mruby header files
+to execute this bytecode. 
+
+In short, what this example showed your is how to,
+
+From ruby code >> to bytecode >> to C header code >> to C main code.
+In the end, your code is running as a C code. not ruby. 
